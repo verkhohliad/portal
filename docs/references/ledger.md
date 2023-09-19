@@ -33,11 +33,15 @@ The ledger canister keeps track of **accounts**:
 
         h = sha224(“\x0Aaccount-id” || principal || subaccount_identifier)
 
-So, there are two steps to obtain the account corresponding to a principal and a subaccount identifier:
+To obtain the account corresponding to a principal and a subaccount identifier, the following canister call can be used:
 
--   First, hash using SHA224 the concatenation of domain separator `\x0Aaccount-id`, the principal and the subaccount identifier. Here, the domain separator consists of a string (here \"account-id\") prepended by a single byte equal to the length of the string (here, \\x0A).
+```
+dfx canister call ryjl3-tyaaa-aaaaa-aaaba-cai account_identifier '(record {owner = principal "l6jli-p5bub-kxvlf-jovmc-hq6lb-3qifz-i6d52-nvhni-bbjuc-n76fc-hqe"; subaccount = opt blob "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01" })' --candid rs/rosetta-api/icp_ledger/ledger.did
 
--   Then, prepend with the (big endian representation of the) CRC32 of the resulting hash value.
+(
+  blob "\af^\f8\c2R\e0/\07\f5;%\d4\1a\ac\a4\9cB\0a\94\1a\94\9c\e2X\fc\85\bdn\c51N\1c",
+)
+```
 
 #### Default account {#_default_account}
 
