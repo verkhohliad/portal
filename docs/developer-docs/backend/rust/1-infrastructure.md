@@ -27,7 +27,7 @@ To create a reproducible canister build, there are two popular workflows: Linux 
 
 It is the canister developer’s responsibility to provide a reproducible way of building a WebAssembly module from the published sources. If your code is still within development, it can help to provide users or other developers with module hashes that correlate to each released version of the project's source code. 
 
-For more information on reproducible canister builds, check out [here](../reproducible-builds.md)
+For more information on reproducible canister builds, check out [here](../reproducible-builds.md).
 
 ## Observability
 Metrics can be used to gain insight into a wide range of information regarding your canister's production services. This data is important to learn about your canister's statistics and productivity. 
@@ -81,7 +81,7 @@ registered_users_total {}",
 
 ## Globally mutable states
 
-By design, canisters on ICP are structured in a way that forces developers to use a global mutable state. However, Rust's design makes it difficult to global mutable variables. This results in Rust developers needing to choose a method of code organization that takes ICP's design into consideration. This guide will cover a few of those code organization options. 
+By design, canisters on ICP are structured in a way that forces developers to use a global mutable state. However, Rust's design makes it difficult to create globally mutable variables. This results in Rust developers needing to choose a method of code organization that takes ICP's design into consideration. This guide will cover a few of those code organization options. 
 
 ### Using `thread_local!` with `Cell/RefCell` for state variables
 
